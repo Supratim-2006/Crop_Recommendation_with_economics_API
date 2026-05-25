@@ -1,0 +1,22 @@
+# Environment variables - NEVER commit this
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Model files (optional - large files)
+# crop_model.joblib
+
+# OS files
+.DS_Store
+Thumbs.db

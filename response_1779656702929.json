@@ -1,0 +1,153 @@
+{
+  "location": {
+    "latitude": 24.5204,
+    "longitude": 88.363
+  },
+  "land_area_acres": 5,
+  "land_area_ha": 2.0235,
+  "weather": {
+    "temperature_c": 27.87,
+    "humidity_pct": 95,
+    "rainfall_mm": 228,
+    "source": "Open-Meteo live (last 30 days)"
+  },
+  "soil": {
+    "N": 1.5,
+    "P": 44.9,
+    "K": 138.9,
+    "ph": 6.7,
+    "P_source": "Estimated from SoilGrids SOC (19.4 g/kg) — P = 10 + (SOC × 1.8)",
+    "K_source": "Estimated from SoilGrids CEC (18.4 cmol/kg) — K = 80 + (CEC × 3.2)",
+    "N_source": "SoilGrids satellite API",
+    "ph_source": "SoilGrids satellite API"
+  },
+  "top_5_crops": [
+    {
+      "rank": 1,
+      "crop": "papaya",
+      "confidence_pct": 60.33,
+      "season": "Annual",
+      "category": "Fruit",
+      "duration_days": 270,
+      "water_req_mm": 1500,
+      "economics": {
+        "yield_kg": 80940,
+        "yield_low_kg": 60704,
+        "yield_high_kg": 121409,
+        "price_per_kg_inr": 15,
+        "price_source": "2024 static price (MSP/Agmarknet)",
+        "total_cost_inr": 80940,
+        "revenue_inr": 1214100,
+        "profit_inr": 1133160,
+        "roi_pct": 1400,
+        "profit_margin_pct": 93.3,
+        "breakeven_yield_kg": 5396,
+        "profitable": true
+      },
+      "disease_alert": null
+    },
+    {
+      "rank": 2,
+      "crop": "apple",
+      "confidence_pct": 15,
+      "season": "Annual",
+      "category": "Fruit",
+      "duration_days": 365,
+      "water_req_mm": 1200,
+      "economics": {
+        "yield_kg": 24282,
+        "yield_low_kg": 16187,
+        "yield_high_kg": 40470,
+        "price_per_kg_inr": 120,
+        "price_source": "2024 static price (MSP/Agmarknet)",
+        "total_cost_inr": 303525,
+        "revenue_inr": 2913840,
+        "profit_inr": 2610315,
+        "roi_pct": 860,
+        "profit_margin_pct": 89.6,
+        "breakeven_yield_kg": 2529,
+        "profitable": true
+      },
+      "disease_alert": null
+    },
+    {
+      "rank": 3,
+      "crop": "chickpea",
+      "confidence_pct": 15,
+      "season": "Rabi",
+      "category": "Pulse",
+      "duration_days": 90,
+      "water_req_mm": 400,
+      "economics": {
+        "yield_kg": 2225,
+        "yield_low_kg": 1416,
+        "yield_high_kg": 3642,
+        "price_per_kg_inr": 54.4,
+        "price_source": "2024 static price (MSP/Agmarknet)",
+        "total_cost_inr": 50587,
+        "revenue_inr": 121040,
+        "profit_inr": 70453,
+        "roi_pct": 139.3,
+        "profit_margin_pct": 58.2,
+        "breakeven_yield_kg": 929,
+        "profitable": true
+      },
+      "disease_alert": null
+    },
+    {
+      "rank": 4,
+      "crop": "grapes",
+      "confidence_pct": 4,
+      "season": "Annual",
+      "category": "Fruit",
+      "duration_days": 120,
+      "water_req_mm": 700,
+      "economics": {
+        "yield_kg": 40470,
+        "yield_low_kg": 30352,
+        "yield_high_kg": 60704,
+        "price_per_kg_inr": 80,
+        "price_source": "2024 static price (MSP/Agmarknet)",
+        "total_cost_inr": 242819,
+        "revenue_inr": 3237600,
+        "profit_inr": 2994781,
+        "roi_pct": 1233.3,
+        "profit_margin_pct": 92.5,
+        "breakeven_yield_kg": 3035,
+        "profitable": true
+      },
+      "disease_alert": null
+    },
+    {
+      "rank": 5,
+      "crop": "coconut",
+      "confidence_pct": 2,
+      "season": "Annual",
+      "category": "Fruit",
+      "duration_days": 365,
+      "water_req_mm": 2000,
+      "economics": {
+        "yield_kg": 18211,
+        "yield_low_kg": 12141,
+        "yield_high_kg": 28328,
+        "price_per_kg_inr": 32,
+        "price_source": "2024 static price (MSP/Agmarknet)",
+        "total_cost_inr": 50587,
+        "revenue_inr": 582752,
+        "profit_inr": 532165,
+        "roi_pct": 1052,
+        "profit_margin_pct": 91.3,
+        "breakeven_yield_kg": 1580,
+        "profitable": true
+      },
+      "disease_alert": {
+        "disease": "Bud Rot",
+        "action": "Apply Bordeaux mixture to crown.",
+        "risk": "HIGH"
+      }
+    }
+  ],
+  "best_crop": "papaya",
+  "best_crop_profit": 1133160,
+  "summary": "For 5.0 acres at (24.5204N, 88.363E): grow PAPAYA this Annual season. Expected profit of Rs +1,133,160 (ROI: +1400.0%). Harvest in 270 days."
+}
