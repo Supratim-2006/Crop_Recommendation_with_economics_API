@@ -15,7 +15,7 @@ AGMARKNET_API_KEY = os.getenv("AGMARKNET_API_KEY", "")
 
 BASE_DIR = Path(__file__).parent
 model    = joblib.load(BASE_DIR / "crop_model.joblib")
-eco      = pd.read_csv(BASE_DIR / "crop_economics (1).csv").set_index("crop")
+eco      = pd.read_csv(BASE_DIR / "economics.csv").set_index("crop")
 with open(BASE_DIR / "model_meta.json") as f:
     meta = json.load(f)
 CLASSES  = meta["classes"]
@@ -196,15 +196,76 @@ def filter_impossible_crops(top_raw, lat, lon, temperature):
 
 
 DISEASE_RULES = {
-    "rice":      {"humidity_gt":80,"temp_gt":25,"disease":"Brown Leaf Spot / Blast","action":"Apply Tricyclazole fungicide. Monitor weekly."},
-    "wheat":     {"humidity_gt":75,"temp_lt":15,"disease":"Yellow Rust","action":"Apply Propiconazole at first sign."},
-    "maize":     {"humidity_gt":70,"rainfall_gt":100,"disease":"Maydis Leaf Blight","action":"Ensure drainage. Reduce plant density."},
-    "mungbean":  {"humidity_gt":80,"disease":"Powdery Mildew","action":"Spray Wettable Sulphur 0.3%."},
-    "blackgram": {"humidity_gt":80,"disease":"Yellow Mosaic Virus","action":"Control whitefly with Imidacloprid."},
-    "banana":    {"humidity_gt":85,"temp_gt":26,"disease":"Panama Wilt / Sigatoka","action":"Remove infected leaves. Apply Bordeaux mixture."},
-    "coconut":   {"humidity_gt":85,"disease":"Bud Rot","action":"Apply Bordeaux mixture to crown."},
-    "cotton":    {"humidity_gt":75,"temp_gt":30,"disease":"Bollworm","action":"Apply Bt spray. Monitor bollworm traps."},
-    "coffee":    {"humidity_gt":85,"temp_lt":18,"disease":"Coffee Leaf Rust","action":"Apply Copper Oxychloride spray."},
+    # ── Cereals ───────────────────────────────────────────────────────────────
+    "rice":        {"humidity_gt":80, "temp_gt":25,
+                    "disease":"Brown Leaf Spot / Blast",
+                    "action":"Apply Tricyclazole fungicide. Monitor weekly."},
+    "wheat":       {"humidity_gt":75, "temp_lt":15,
+                    "disease":"Yellow Rust",
+                    "action":"Apply Propiconazole at first sign."},
+    "maize":       {"humidity_gt":70, "rainfall_gt":100,
+                    "disease":"Maydis Leaf Blight",
+                    "action":"Ensure drainage. Reduce plant density."},
+    # ── Pulses ────────────────────────────────────────────────────────────────
+    "mungbean":    {"humidity_gt":80,
+                    "disease":"Powdery Mildew",
+                    "action":"Spray Wettable Sulphur 0.3%."},
+    "blackgram":   {"humidity_gt":80,
+                    "disease":"Yellow Mosaic Virus",
+                    "action":"Control whitefly with Imidacloprid."},
+    "pigeonpeas":  {"humidity_gt":75, "rainfall_gt":80,
+                    "disease":"Fusarium Wilt",
+                    "action":"Use resistant varieties. Apply Carbendazim soil drench."},
+    "chickpea":    {"humidity_gt":70, "temp_lt":18,
+                    "disease":"Ascochyta Blight",
+                    "action":"Spray Mancozeb 0.25% at first sign of lesions."},
+    "lentil":      {"humidity_gt":75, "temp_lt":15,
+                    "disease":"Rust / Stemphylium Blight",
+                    "action":"Apply Propiconazole. Avoid overhead irrigation."},
+    # ── Fruits ────────────────────────────────────────────────────────────────
+    "banana":      {"humidity_gt":85, "temp_gt":26,
+                    "disease":"Panama Wilt / Sigatoka",
+                    "action":"Remove infected leaves. Apply Bordeaux mixture."},
+    "papaya":      {"humidity_gt":85, "temp_gt":28,
+                    "disease":"Papaya Ring Spot Virus / Anthracnose",
+                    "action":"Control aphid vectors with Imidacloprid. Remove infected plants."},
+    "mango":       {"humidity_gt":80, "temp_gt":28,
+                    "disease":"Anthracnose / Powdery Mildew",
+                    "action":"Apply Carbendazim or Wettable Sulphur before flowering."},
+    "grapes":      {"humidity_gt":80,
+                    "disease":"Downy Mildew / Powdery Mildew",
+                    "action":"Apply Metalaxyl + Mancozeb. Ensure good air circulation."},
+    "watermelon":  {"humidity_gt":80, "rainfall_gt":80,
+                    "disease":"Gummy Stem Blight / Downy Mildew",
+                    "action":"Apply Chlorothalonil. Avoid waterlogging."},
+    "muskmelon":   {"humidity_gt":80, "rainfall_gt":80,
+                    "disease":"Powdery Mildew / Downy Mildew",
+                    "action":"Spray Wettable Sulphur 0.3%. Improve drainage."},
+    "pomegranate": {"humidity_gt":80, "rainfall_gt":100,
+                    "disease":"Bacterial Blight / Fruit Rot",
+                    "action":"Apply Copper Oxychloride spray. Remove infected fruits."},
+    "orange":      {"humidity_gt":80, "temp_gt":28,
+                    "disease":"Citrus Canker / Greening",
+                    "action":"Apply Copper-based fungicide. Remove affected branches."},
+    "apple":       {"humidity_gt":75, "temp_lt":18,
+                    "disease":"Apple Scab / Fire Blight",
+                    "action":"Apply Captan or Mancozeb at bud-break stage."},
+    "coconut":     {"humidity_gt":85,
+                    "disease":"Bud Rot / Root Wilt",
+                    "action":"Apply Bordeaux mixture to crown. Remove infected palms."},
+    "papaya":      {"humidity_gt":85, "temp_gt":28,
+                    "disease":"Papaya Ring Spot Virus / Anthracnose",
+                    "action":"Control aphid vectors with Imidacloprid. Remove infected plants."},
+    # ── Cash Crops ────────────────────────────────────────────────────────────
+    "cotton":      {"humidity_gt":75, "temp_gt":30,
+                    "disease":"Bollworm / Leaf Curl Virus",
+                    "action":"Apply Bt spray. Monitor pheromone traps. Use Bt cotton varieties."},
+    "jute":        {"humidity_gt":85, "rainfall_gt":150,
+                    "disease":"Stem Rot / Soft Rot",
+                    "action":"Improve drainage. Apply Carbendazim 0.1% spray."},
+    "coffee":      {"humidity_gt":85, "temp_lt":18,
+                    "disease":"Coffee Leaf Rust",
+                    "action":"Apply Copper Oxychloride spray every 3 weeks."},
 }
 
 
@@ -352,7 +413,7 @@ def get_disease_alert(crop, temp, humidity, rainfall):
     return DiseaseAlert(disease=rule["disease"], action=rule["action"], risk="HIGH")
 
 
-def calc_economics(crop, land_ha, price_per_quintal):
+def calc_economics(crop, land_ha, price_per_quintal, price_source):
     row        = eco.loc[crop]
     price_kg   = round(price_per_quintal / 100, 2)
     yield_kg   = int(row["avg_yield_kg_per_ha"]         * land_ha)
@@ -361,12 +422,12 @@ def calc_economics(crop, land_ha, price_per_quintal):
     total_cost = int(row["cultivation_cost_inr_per_ha"] * land_ha)
     revenue    = int(yield_kg * price_kg)
     profit     = revenue - total_cost
-    roi        = round(profit / total_cost * 100, 1)
-    margin     = round(profit / revenue   * 100, 1) if revenue > 0 else 0.0
-    breakeven  = int(total_cost / price_kg)
+    roi        = round(profit / total_cost * 100, 1) if total_cost > 0 else 0.0
+    margin     = round(profit / revenue   * 100, 1) if revenue    > 0 else 0.0
+    breakeven  = int(total_cost / price_kg)          if price_kg  > 0 else 0
     return CropEconomics(
         yield_kg=yield_kg, yield_low_kg=yield_low, yield_high_kg=yield_high,
-        price_per_kg_inr=price_kg, price_source="",
+        price_per_kg_inr=price_kg, price_source=price_source,
         total_cost_inr=total_cost, revenue_inr=revenue,
         profit_inr=profit, roi_pct=roi, profit_margin_pct=margin,
         breakeven_yield_kg=breakeven, profitable=profit>0
@@ -424,8 +485,7 @@ def predict_by_location(data: LocationInput):
         if crop not in eco.index:
             continue
         price_q, price_src = fetch_price(crop, used_key)
-        econ               = calc_economics(crop, land_ha, price_q)
-        econ.price_source  = price_src
+        econ               = calc_economics(crop, land_ha, price_q, price_src)
         alert              = get_disease_alert(crop, temperature, humidity, rainfall)
         row                = eco.loc[crop]
         crop_results.append(CropResult(
