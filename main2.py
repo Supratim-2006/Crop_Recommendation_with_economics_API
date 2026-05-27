@@ -15,7 +15,7 @@ AGMARKNET_API_KEY = os.getenv("AGMARKNET_API_KEY", "")
 
 BASE_DIR = Path(__file__).parent
 model    = joblib.load(BASE_DIR / "crop_model.joblib")
-eco      = pd.read_csv(BASE_DIR / "crop_economics.csv").set_index("crop")
+eco      = pd.read_csv(BASE_DIR / "crop_economics (1).csv").set_index("crop")
 with open(BASE_DIR / "model_meta.json") as f:
     meta = json.load(f)
 CLASSES  = meta["classes"]
@@ -355,7 +355,7 @@ def calc_economics(crop, land_ha, price_per_quintal):
         breakeven_yield_kg=breakeven, profitable=profit>0
     )
 
-
+# ── Routes ────────────────────────────────────────────────────────────────────
 @app.get("/", tags=["Health"])
 def health():
     return {"status":"running","version":"2.2.0",
