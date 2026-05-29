@@ -47,39 +47,136 @@ FALLBACK_PRICES = {
 
 # ── City soil DB ──────────────────────────────────────────────────────────────
 CITY_SOIL_DB = {
-    "kolkata":(22.57,88.36,82,36,214,6.5),"murshidabad":(24.18,88.27,78,32,198,6.3),
-    "siliguri":(26.72,88.43,90,42,220,5.8),"howrah":(22.59,88.31,80,34,210,6.4),
-    "durgapur":(23.48,87.32,76,31,192,6.6),"mumbai":(19.08,72.88,68,28,156,7.2),
-    "pune":(18.52,73.86,72,30,175,7.5),"nagpur":(21.15,79.09,65,26,145,7.8),
-    "nashik":(19.99,73.79,70,29,168,7.3),"aurangabad":(19.88,75.34,68,27,160,7.6),
-    "chennai":(13.08,80.27,55,22,132,7.8),"coimbatore":(11.02,76.97,62,25,148,6.9),
-    "madurai":(9.93,78.12,58,23,138,7.5),"trichy":(10.79,78.70,60,24,142,7.2),
-    "salem":(11.65,78.16,58,22,135,7.4),"amritsar":(31.63,74.87,95,48,185,7.8),
-    "ludhiana":(30.90,75.85,92,46,180,7.9),"chandigarh":(30.73,76.78,88,44,175,7.7),
-    "jalandhar":(31.33,75.58,90,45,178,7.8),"lucknow":(26.85,80.95,85,38,190,7.2),
-    "patna":(25.60,85.14,80,35,195,6.8),"varanasi":(25.32,83.01,83,37,188,7.0),
-    "agra":(27.18,78.01,82,36,185,7.5),"kanpur":(26.46,80.35,84,38,188,7.3),
-    "allahabad":(25.44,81.84,82,36,190,7.1),"hyderabad":(17.38,78.49,62,24,142,7.6),
-    "vijayawada":(16.51,80.64,68,26,158,7.2),"visakhapatnam":(17.69,83.22,65,25,152,7.0),
-    "warangal":(18.00,79.59,64,25,148,7.4),"bangalore":(12.97,77.59,58,20,125,6.2),
-    "mysore":(12.30,76.65,62,22,135,6.5),"hubli":(15.36,75.12,65,24,142,7.2),
-    "mangalore":(12.87,74.84,70,28,162,5.9),"ahmedabad":(23.02,72.57,48,18,118,8.1),
-    "surat":(21.17,72.83,52,20,125,7.8),"vadodara":(22.31,73.18,50,19,120,8.0),
-    "rajkot":(22.30,70.80,45,17,112,8.2),"jaipur":(26.91,75.79,38,15,98,7.9),
-    "jodhpur":(26.29,73.02,32,12,88,8.2),"udaipur":(24.58,73.71,40,16,102,7.8),
-    "kota":(25.18,75.83,42,17,105,7.7),"shimla":(31.10,77.17,75,32,165,5.8),
-    "dehradun":(30.32,78.03,78,34,172,6.2),"haridwar":(29.95,78.16,80,35,175,7.0),
-    "nainital":(29.38,79.46,72,30,158,5.5),"guwahati":(26.14,91.74,92,44,225,5.5),
-    "shillong":(25.57,91.88,88,42,215,5.2),"dibrugarh":(27.48,95.00,90,43,220,5.4),
-    "kochi":(9.93,76.27,75,35,185,5.8),"thiruvananthapuram":(8.52,76.94,72,33,178,5.9),
-    "kozhikode":(11.25,75.78,78,36,190,5.7),"thrissur":(10.52,76.21,76,35,186,5.8),
-    "bhopal":(23.26,77.40,65,25,148,7.5),"indore":(22.72,75.86,68,27,155,7.3),
-    "jabalpur":(23.18,79.94,66,26,150,7.2),"gwalior":(26.22,78.18,70,28,160,7.6),
-    "bhubaneswar":(20.30,85.82,72,30,175,6.5),"cuttack":(20.46,85.88,75,32,180,6.3),
-    "rourkela":(22.26,84.86,70,29,170,6.4),"ranchi":(23.34,85.31,68,27,165,5.8),
-    "jamshedpur":(22.80,86.18,65,26,158,6.0),"raipur":(21.25,81.63,70,28,168,6.5),
-    "bilaspur":(22.09,82.15,68,27,162,6.4),"delhi":(28.67,77.21,75,32,175,7.8),
-    "noida":(28.54,77.39,76,33,178,7.7),"gurugram":(28.46,77.03,74,31,172,7.9),
+    # Format: "city": (latitude, longitude, N (kg/ha), P (kg/ha), K (kg/ha), pH)
+    
+    "darjeeling": (27.04, 88.26, 310, 40, 330, 4.8),    
+    "kalimpong": (27.06, 88.47, 305, 38, 325, 5.0) ,    
+    "siliguri": (26.72, 88.43, 310, 42, 335, 5.8),      
+    "jalpaiguri": (26.52, 88.72, 300, 50, 340, 5.5),    
+    "coochbehar": (26.32, 89.45, 295, 48, 338, 5.6),    
+    "alipurduar": (26.49, 89.52, 300, 49, 342, 5.4),    
+    "malda": (25.01, 88.14, 285, 46, 335, 6.6),         
+    "balurghat": (25.22, 88.76, 275, 43, 320, 6.3),     
+    "raiganj": (25.62, 88.12, 280, 45, 325, 6.2),       
+    "kolkata": (22.57, 88.36, 290, 50, 345, 6.5),      
+    "howrah": (22.59, 88.31, 285, 48, 340, 6.4),        
+    "bardhaman": (23.23, 87.86, 295, 52, 345, 6.5),     
+    "durgapur": (23.48, 87.32, 275, 44, 331, 6.6),      
+    "murshidabad": (24.18, 88.27, 280, 45, 340, 6.3),   
+    "berhampore": (24.09, 88.25, 282, 46, 338, 6.4),    
+    "krishnanagar": (23.40, 88.50, 290, 51, 340, 6.7),  
+    "ranaghat": (23.18, 88.56, 288, 49, 335, 6.6),      
+    "chinsurah": (22.90, 88.39, 292, 50, 342, 6.5),     
+    "serampore": (22.75, 88.34, 290, 48, 340, 6.5),     
+    "barasat": (22.72, 88.48, 285, 47, 338, 6.6),       
+    "barrackpore": (22.76, 88.37, 288, 48, 340, 6.5),   
+    "habra": (22.83, 88.63, 282, 46, 335, 6.6),         
+    "basirhat": (22.66, 88.89, 278, 44, 328, 6.8),      
+    "asansol": (23.67, 86.95, 270, 42, 325, 6.4),       
+    "purulia": (23.33, 86.37, 210, 26, 240, 5.8),       
+    "bankura": (23.23, 87.07, 225, 28, 255, 6.0),       
+    "bishnupur": (23.07, 87.32, 222, 27, 250, 5.9),     
+    "suri": (23.91, 87.53, 230, 29, 260, 6.1),          
+    "bolpur": (23.67, 87.68, 235, 31, 265, 6.2),        
+    "kharagpur": (22.33, 87.32, 250, 35, 280, 6.1),     
+    "midnapore": (22.42, 87.32, 252, 36, 285, 6.2),     
+    "haldia": (22.03, 88.06, 265, 38, 295, 7.2),        
+    "tamluk": (22.30, 87.92, 268, 39, 300, 7.1),        
+    "baruipur": (22.36, 88.43, 270, 41, 310, 6.9),      
+    "diamondharbour": (22.19, 88.20, 260, 37, 290, 7.3),
+    "digha": (21.63, 87.51, 230, 32, 270, 7.5),         
+
+    
+    # Maharashtra
+    "mumbai": (19.08, 72.88, 255, 41, 277, 7.2),
+    "pune": (18.52, 73.86, 265, 43, 305, 7.5),
+    "nagpur": (21.15, 79.09, 247, 38, 260, 7.8),
+    "nashik": (19.99, 73.79, 260, 42, 295, 7.3),
+    "aurangabad": (19.88, 75.34, 255, 39, 283, 7.6),
+    
+    # Tamil Nadu
+    "chennai": (13.08, 80.27, 222, 33, 241, 7.8),
+    "coimbatore": (11.02, 76.97, 240, 37, 265, 6.9),
+    "madurai": (9.93, 78.12, 230, 35, 250, 7.5),
+    "trichy": (10.79, 78.70, 235, 36, 256, 7.2),
+    "salem": (11.65, 78.16, 230, 33, 245, 7.4),
+    
+    # Punjab & Chandigarh
+    "amritsar": (31.63, 74.87, 322, 65, 320, 7.8),
+    "ludhiana": (30.90, 75.85, 315, 62, 313, 7.9),
+    "chandigarh": (30.73, 76.78, 305, 60, 305, 7.7),
+    "jalandhar": (31.33, 75.58, 310, 61, 310, 7.8),
+    
+    # Uttar Pradesh
+    "lucknow": (26.85, 80.95, 297, 53, 328, 7.2),
+    "varanasi": (25.32, 83.01, 292, 51, 325, 7.0),
+    "agra": (27.18, 78.01, 290, 50, 320, 7.5),
+    "kanpur": (26.46, 80.35, 295, 53, 325, 7.3),
+    "allahabad": (25.44, 81.84, 290, 50, 328, 7.1),
+    "noida": (28.54, 77.39, 275, 47, 310, 7.7),
+    
+    # Bihar
+    "patna": (25.60, 85.14, 285, 49, 335, 6.8),
+    
+    # Telangana & Andhra Pradesh
+    "hyderabad": (17.38, 78.49, 240, 36, 256, 7.6),
+    "warangal": (18.00, 79.59, 245, 37, 265, 7.4),
+    "vijayawada": (16.51, 80.64, 255, 38, 280, 7.2),
+    "visakhapatnam": (17.69, 83.22, 247, 37, 271, 7.0),
+    
+    # Karnataka
+    "bangalore": (12.97, 77.59, 230, 31, 230, 6.2),
+    "mysore": (12.30, 76.65, 240, 33, 245, 6.5),
+    "hubli": (15.36, 75.12, 247, 36, 256, 7.2),
+    "mangalore": (12.87, 74.84, 260, 41, 286, 5.9),
+    
+    # Gujarat
+    "ahmedabad": (23.02, 72.57, 205, 29, 220, 8.1),
+    "surat": (21.17, 72.83, 215, 31, 230, 7.8),
+    "vadodara": (22.31, 73.18, 210, 30, 223, 8.0),
+    "rajkot": (22.30, 70.80, 197, 27, 211, 8.2),
+    
+    # Rajasthan
+    "jaipur": (26.91, 75.79, 180, 25, 190, 7.9),
+    "jodhpur": (26.29, 73.02, 165, 21, 175, 8.2),
+    "udaipur": (24.58, 73.71, 185, 26, 196, 7.8),
+    "kota": (25.18, 75.83, 190, 27, 200, 7.7),
+    
+    # Himachal Pradesh & Uttarakhand
+    "shimla": (31.10, 77.17, 272, 45, 290, 5.8),
+    "dehradun": (30.32, 78.03, 280, 48, 301, 6.2),
+    "haridwar": (29.95, 78.16, 285, 49, 305, 7.0),
+    "nainital": (29.38, 79.46, 265, 43, 280, 5.5),
+    
+    # Northeast India
+    "guwahati": (26.14, 91.74, 315, 60, 380, 5.5),
+    "shillong": (25.57, 91.88, 305, 57, 365, 5.2),
+    "dibrugarh": (27.48, 95.00, 310, 59, 373, 5.4),
+    
+    # Kerala
+    "kochi": (9.93, 76.27, 272, 49, 320, 5.8),
+    "thiruvananthapuram": (8.52, 76.94, 265, 47, 310, 5.9),
+    "kozhikode": (11.25, 75.78, 280, 50, 328, 5.7),
+    "thrissur": (10.52, 76.21, 275, 49, 322, 5.8),
+    
+    # Madhya Pradesh & Chhattisgarh
+    "bhopal": (23.26, 77.40, 247, 37, 265, 7.5),
+    "indore": (22.72, 75.86, 255, 39, 275, 7.3),
+    "jabalpur": (23.18, 79.94, 250, 38, 268, 7.2),
+    "gwalior": (26.22, 78.18, 260, 41, 283, 7.6),
+    "raipur": (21.25, 81.63, 260, 41, 295, 6.5),
+    "bilaspur": (22.09, 82.15, 255, 39, 286, 6.4),
+    
+    # Odisha & Jharkhand
+    "bhubaneswar": (20.30, 85.82, 265, 43, 305, 6.5),
+    "cuttack": (20.46, 85.88, 272, 45, 313, 6.3),
+    "rourkela": (22.26, 84.86, 260, 42, 298, 6.4),
+    "ranchi": (23.34, 85.31, 255, 39, 290, 5.8),
+    "jamshedpur": (22.80, 86.18, 247, 38, 280, 6.0),
+    
+    # Delhi & Haryana
+    "delhi": (28.67, 77.21, 272, 45, 305, 7.8),
+    "gurugram": (28.46, 77.03, 270, 44, 301, 7.9),
 }
 
 # ── Disease rules ─────────────────────────────────────────────────────────────
@@ -133,9 +230,9 @@ class LocationInput(BaseModel):
     agmarknet_api_key: Optional[str] = Field(None, description="data.gov.in key for live mandi prices")
     openweather_api_key: Optional[str] = Field(None, description="OpenWeatherMap API key (or set OPENWEATHER_API_KEY in .env)")
     # All soil fields optional — auto-fetched from ICAR DB if not given
-    soil_N:  Optional[float] = Field(None, ge=0,  le=140, description="Nitrogen kg/ha (optional — from soil test)")
+    soil_N:  Optional[float] = Field(None, ge=0,  le=435, description="Nitrogen kg/ha (optional — from soil test)")
     soil_P:  Optional[float] = Field(None, ge=0,  le=200, description="Phosphorus kg/ha (optional — from soil test)")
-    soil_K:  Optional[float] = Field(None, ge=0,  le=250, description="Potassium kg/ha (optional — from soil test)")
+    soil_K:  Optional[float] = Field(None, ge=0,  le=600, description="Potassium kg/ha (optional — from soil test)")
     soil_ph: Optional[float] = Field(None, ge=0,  le=14,  description="Soil pH (optional — auto-fetched from ICAR DB)")
 
 class DailyForecast(BaseModel):
@@ -298,9 +395,8 @@ def fetch_weather_owm(lat, lon, api_key):
                 forecasts
             )
 
-        # Free tier fallback: 5-day/3-hour forecast
+
         elif r.status_code == 401:
-            # Try free tier endpoint
             url2 = "https://api.openweathermap.org/data/2.5/forecast"
             params2 = {"lat": lat, "lon": lon, "appid": api_key,
                        "units": "metric", "cnt": 40}
@@ -489,9 +585,19 @@ def calc_economics(crop, land_ha, price_per_quintal, price_source):
         breakeven_yield_kg=breakeven, profitable=profit>0
     )
 
-# ══════════════════════════════════════════════════════════════════════════════
-# ROUTES
-# ══════════════════════════════════════════════════════════════════════════════
+def transform_real_to_synthetic(real_n, real_p, real_k):
+
+    real_n = min(real_n, 435)
+    real_p = min(real_p, 181)
+    real_k = min(real_k, 350.5)
+
+    synthetic_n = (real_n - 85) / 2.5
+    synthetic_p = (real_p - 7) / 1.2
+    synthetic_k = (real_k - 43) / 1.5
+    
+    return max(0, synthetic_n), max(0, synthetic_p), max(0, synthetic_k)
+
+
 @app.get("/", tags=["Health"])
 def health():
     return {
@@ -524,10 +630,16 @@ def predict_by_location(data: LocationInput):
     db_N, db_P, db_K, db_ph, nearest_city, dist_km = get_nearest_city_soil(
         data.latitude, data.longitude
     )
+
+
+
     soil_N  = data.soil_N  if data.soil_N  is not None else db_N
     soil_P  = data.soil_P  if data.soil_P  is not None else db_P
     soil_K  = data.soil_K  if data.soil_K  is not None else db_K
     soil_ph = data.soil_ph if data.soil_ph is not None else db_ph
+
+
+    soil_N, soil_P, soil_K = transform_real_to_synthetic(soil_N, soil_P, soil_K)
 
     # ph_source tells user where pH came from
     ph_source = "User soil test" if data.soil_ph is not None else \
