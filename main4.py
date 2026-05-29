@@ -229,7 +229,6 @@ class LocationInput(BaseModel):
     land_area_acres:   float         = Field(..., gt=0,    le=10000, example=5.0)
     agmarknet_api_key: Optional[str] = Field(None, description="data.gov.in key for live mandi prices")
     openweather_api_key: Optional[str] = Field(None, description="OpenWeatherMap API key (or set OPENWEATHER_API_KEY in .env)")
-    # All soil fields optional — auto-fetched from ICAR DB if not given
     soil_N:  Optional[float] = Field(None, ge=0,  le=435, description="Nitrogen kg/ha (optional — from soil test)")
     soil_P:  Optional[float] = Field(None, ge=0,  le=200, description="Phosphorus kg/ha (optional — from soil test)")
     soil_K:  Optional[float] = Field(None, ge=0,  le=600, description="Potassium kg/ha (optional — from soil test)")
@@ -641,7 +640,7 @@ def predict_by_location(data: LocationInput):
 
     soil_N, soil_P, soil_K = transform_real_to_synthetic(soil_N, soil_P, soil_K)
 
-    # ph_source tells user where pH came from
+
     ph_source = "User soil test" if data.soil_ph is not None else \
                 f"ICAR DB — {nearest_city} ({dist_km} km)"
 
@@ -709,7 +708,7 @@ def predict_by_location(data: LocationInput):
             daily_forecast=daily_forecast,
         ),
         soil=SoilData(
-            N=soil_N, P=soil_P, K=soil_K, ph=soil_ph,
+            N=soil_N*2.5+85, P=soil_P*1.2+7, K=soil_K*1.5+43, ph=soil_ph,
             ph_source=ph_source,
             source=soil_source,
             nearest_city=nearest_city,
